@@ -1,0 +1,194 @@
+
+ @media screen and (max-width: 650px){
+#cover{
+display: none;
+}
+.searchl{
+visibility: hidden;
+align-items: center;
+margin: auto;
+}
+.setting img{
+display: none;
+}
+.examples{
+display: flex;
+}
+.button-two {
+--button-color: rgb(0, 234, 255);
+cursor: pointer;
+position: fixed;
+top: -30em;
+left: 650em;
+}
+.nav .ul .li{
+display: block;
+}
+.test-col{
+  position: relative;
+  top: -110em;
+  flex-basis: 110%;
+  margin-bottom: 30px;
+}
+ }
+ @media screen and (min-width: 900px){
+#cover{
+display: block;
+}
+.setting img{
+display: block;
+}
+.examples{
+display: none;
+}
+.sideNavbg{
+    display: none;
+}
+.search{
+    position: fixed;
+    left: 820px !important;
+    visibility: visible !important;
+    }
+
+ }
+
+ @media(max-width: 1000px) {
+    body {
+      align-items: flex-start;  
+      overflow-x: hidden;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #cards {    
+      max-width: 1000px;
+      margin: auto;
+      -ms-align-center: center;
+      align-self: center;
+      justify-content: center;
+    }
+    
+    .card {
+      flex-shrink: 1;
+      width: calc(50% - 4px);
+    }
+    .test-col{
+      position: relative;
+      top: -110em;
+      flex-basis: 100%;
+    }
+    .test-row{
+      margin-bottom: 7em;
+    }
+  }
+  
+  @media(max-width: 500px) {
+      #card{
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          transform: translateY(5em);
+      }
+    .card {
+      height: 180px;
+      margin: auto;
+    }
+    
+    .card-image {
+      height: 80px;  
+    }
+    
+    .card-image > i {
+      font-size: 3em;
+    }
+      
+    .card-info-wrapper {
+      padding: 0px 10px;
+    }
+    
+    .card-info > i { 
+      font-size: 0.8em; 
+    }
+    
+    .card-info-title > h3 {
+      font-size: 0.9em;
+    }
+  
+    .card-info-title > h4 {
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+  }
+  
+  @media(max-width: 320px) {
+    .card {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .card-imageswiper{
+      position: relative;
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      padding: 3px;
+  }
+  }
+
+
+@media(max-width: 700px){
+  footer{
+    bottom: unset;
+  }
+  .footer-col{
+    flex-basis: 100%;
+    }
+    .footer-col:nth-child(2), .footer-col:nth-child(3){
+       flex-basis: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

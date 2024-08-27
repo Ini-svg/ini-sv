@@ -1,0 +1,336 @@
+.noDecoration, a:link, a:visited {
+    text-decoration: none;
+}
+.glow-effect {
+    --glow-line-color: #2bff00;
+    --glow-line-thickness: 2px;
+    --glow-line-length: 20px;
+    --glow-blur-color: #2bff00;
+    --glow-blur-size: 5px;
+    --glow-offset: 0px;
+    --animation-speed: 1200ms;
+    /* do not change, used for calculations */
+    --container-offset: 100px;
+    position: fixed;
+  }
+  .glow-effect img:hover,:focus{
+    position: fixed;
+   box-shadow: 0px 0px 0px 5px rgba(128, 128, 128, 0.142);
+  }
+  .glow-container {
+    pointer-events: none;
+    position: absolute;
+    inset: calc(var(--container-offset) / -2);
+    width: calc(100% + var(--container-offset));
+    height: calc(100% + var(--container-offset));
+    opacity: 0;
+    /* // outline: 3px solid blue; */
+  }
+  
+  .glow-blur,
+  .glow-line {
+    width: calc(100% - var(--container-offset) + var(--glow-offset));
+    height: calc(100% - var(--container-offset) + var(--glow-offset));
+    x:  calc((var(--container-offset) / 2) + calc(var(--glow-offset) / -2));
+    y: calc((var(--container-offset) / 2) + calc(var(--glow-offset) / -2));
+    /* rx: 1.25rem; */
+    fill: transparent;
+    stroke: black;
+    stroke-width: 5px;
+    stroke-dasharray: var(--glow-line-length) calc(50px - var(--glow-line-length));
+  }
+  
+  .glow-effect:is(:hover, :focus) :is(.glow-line, .glow-blur) {
+    stroke-dashoffset: 80px;
+    transition: stroke-dashoffset var(--animation-speed) ease-in;
+  }
+  
+  .glow-line {
+    stroke: var(--glow-line-color);
+    stroke-width: var(--glow-line-thickness);
+  }
+  
+  .glow-blur {
+    filter: blur(var(--glow-blur-size));
+    stroke: var(--glow-blur-color);
+    stroke-width: var(--glow-blur-size);
+  }
+  
+  /* .glow-effect:is(:hover, :focus) .glow-container {
+    animation: glow-visibility ease-in-out var(--animation-speed);
+  }
+   */
+  @keyframes glow-visibility {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    25%,
+    75% {
+      opacity: 1;
+    }
+  }
+  .glow-effect[data-glow-animation="false"] {
+    --glow-line-length: 50px;
+  }
+  .glow-effect[data-glow-offset="true"] {
+    --glow-offset: 10px;
+  }
+  
+  .glow-effect[data-glow-animation="grow"]:is(:hover, :focus) .glow-container {
+    --scale-glow-: 1.3;
+    scale: var(--scale-glow-);
+    transition: scale var(--animation-speed) linear;
+  }
+.setting-drop{
+    position: fixed;
+    width: 13em;
+    max-height: 0em;
+    height:fit-content;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    left:57em;
+    /* opacity: 0; */
+    background: rgb(255, 255, 255);
+    top: 4em;
+   z-index: 5;
+   border-radius:5px;
+   -webkit-box-shadow: 2px 2px 10px -2px rgba(0, 0, 0, 0.658);
+-moz-box-shadow: 2px 6px 10px -2px rgba(0, 0, 0, 0.635);
+box-shadow: 2px 6px 10px -2px rgba(0, 0, 0, 0.6);
+   overflow: hidden;
+   transition: max-height 2s ease-out;
+   font-family: Arial, Helvetica, sans-serif;
+   display: grid;
+    --text-width-: 100%;
+    --text--height: 2.5rem;
+    --clr--: #333;
+    --bg-gradient-clr-: linear-gradient(90deg,#ccc,  #ee6352, #ff2b8a, #ee6352, #ccc);
+    --gradient-anmtn-spd: 4s;
+}
+
+.user-info{
+display: flex;
+height: 50px;
+align-items: center;
+justify-content: center;
+margin-bottom: .5px;
+}
+.user-info h1{
+font-weight: 100;
+font-size: 20px;
+padding-left: 6px;
+padding: 10px 3px 2px 17px;
+color: var(--clr--)
+}
+.user-info img{
+width:35px;
+height: 35px;
+border-radius: 50%;
+margin-top: 5px;
+}
+
+.Edit-profile-li{
+height: var(--text--height);
+width: var(--text-width-);
+display: flex;
+align-items: center;
+}
+@keyframes bg-animation {
+  0% {background-position: left}
+  50% {background-position: right}
+  100% {background-position: left}
+}
+.Edit-profile-wrapper{
+color: #888888;
+text-decoration: none;
+display: inline-flex;
+flex: 1fr;
+margin-inline-start: 2rem;
+}
+
+
+.Edit-profile-li  svg{
+margin-right: 1rem;
+transform: scale(1.1);
+transition: transform .5s ease-in-out;
+}
+.Edit-profile-li p{
+font-size: .99rem;
+font-weight: 500;
+}
+.Edit-profile-li:hover  svg{
+color: rgb(255, 41, 123);
+transform: scale(1.2);
+}
+.Edit-profile-li:hover p{
+background-image: var(--bg-gradient-clr-);
+background-clip: text;
+color: transparent;
+background-size: 300%;
+animation: bg-animation var(--gradient-anmtn-spd) infinite alternate;
+font-weight: 540;
+}
+.Edit-profile-li:hover{
+background: #554f4f27;
+border-radius: 10px;
+}
+
+.settings-li{
+height: var(--text--height);
+width: var(--text-width-);
+display: flex;
+align-items: center;
+}
+.settings-wrapper{
+color: #888888;
+text-decoration: none;
+display: inline-flex;
+margin-inline-start: 2rem;
+}
+.settings-li a svg {
+align-self: center;
+margin-right: 1rem;
+transform: scale(1.15);
+transition: transform .5s ease-in-out;
+}
+.settings-li a p{
+font-size: .99rem;
+font-weight: 500;
+}
+.settings-li:hover a svg{
+color: rgb(255, 41, 123);
+transform: scale(1.3);
+}
+.settings-li:hover a p{
+  background-image: var(--bg-gradient-clr-);
+  background-clip: text;
+  color: transparent;
+  background-size: 300%;
+  animation: bg-animation var(--gradient-anmtn-spd) infinite alternate;
+font-weight: 540;
+}
+.settings-li:hover{
+background-color: #554f4f27;
+border-radius: 10px;
+}
+
+.notification-li{
+height: var(--text--height);
+width: var(--text-width-);
+display: flex;
+align-items: center;
+}
+.notification-wrapper{
+color: #888888;
+text-decoration: none;
+display: inline-flex;
+margin-inline-start: 2rem;
+}
+.notification-li a svg{
+align-self: center;
+margin-right: 1rem;
+transform: scale(1.15);
+transition: transform .5s ease-in-out;
+}
+.notification-li p{
+  font-size: .99rem;
+  font-weight: 500;
+}
+.notification-li:hover a svg{
+color: rgb(255, 41, 123);
+transform: scale(1.3);
+}
+.notification-li:hover p{
+background-image: var(--bg-gradient-clr-);
+background-clip: text;
+color: transparent;
+background-size: 300%;
+animation: bg-animation var(--gradient-anmtn-spd) infinite alternate;
+font-weight: 540;
+}
+.notification-li:hover{
+background-color: #554f4f27;
+border-radius: 10px;
+}
+
+.Help-li{
+height: var(--text--height);
+width: var(--text-width-);
+display: flex;
+align-items: center;
+}
+.Help-wrapper{
+color: #888888;
+text-decoration: none;
+display: inline-flex;
+margin-inline-start: 2rem;
+}
+.Help-li a svg{
+margin-right: 1rem;
+align-self: center;
+transform: scale(1.15);
+transition: transform .5s ease-in-out;
+}
+.Help-li a p{
+font-weight: 500;
+font-size: .99rem;
+}
+.Help-li:hover a svg{
+color: rgb(255, 41, 123);
+transform: scale(1.5);
+}
+.Help-li:hover a p{
+background-image: var(--bg-gradient-clr-);
+background-clip: text;
+color: transparent;
+background-size: 300%;
+animation: bg-animation var(--gradient-anmtn-spd) infinite alternate;
+font-weight: 540;
+}
+.Help-li:hover{
+background-color: #554f4f27;
+border-radius: 10px;
+}
+
+.Logout-li{
+height: var(--text--height);
+width: var(--text-width-);
+display: flex;
+align-items: center;
+}
+.Logout-wrapper{
+color: #888888;
+text-decoration: none;
+display: inline-flex;
+margin-inline-start: 2rem;
+}
+.Logout-li a svg{
+margin-right: 1rem;
+align-self: center;
+transform: scale(1.4);
+transition: transform .5s ease-in-out;
+}
+.Logout-li p{    
+font-weight: 500; 
+font-size: .99rem;    
+}
+.Logout-li:hover a svg{
+color: rgb(255, 41, 123);
+transform: scale(1.5);
+}
+.Logout-li:hover a  p{
+background-image: var(--bg-gradient-clr-);
+background-clip: text;
+color: transparent;
+background-size: 300%;
+animation: bg-animation var(--gradient-anmtn-spd) infinite alternate;
+font-weight: 540;
+}
+.Logout-li:hover{
+background-color: #554f4f27;
+border-radius: 10px 10px 0 0 ;
+}
+
+
